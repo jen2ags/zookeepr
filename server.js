@@ -8,11 +8,6 @@ const PORT = process.env.PORT || 3001;
 
 const app = express();
 
-const fs = require('fs');
-
-const path = require('path');
-
-
 
 //parse incoming string or array data
 app.use(express.urlencoded({ extended: true }));
@@ -20,14 +15,6 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use('/api', apiRoutes);
 app.use('/', htmlRoutes);
-
-app.use(express.static('public'));
-
-const { animals } = require('./data/animals');
-
-
-
-
 
 
 app.listen(PORT, () => {

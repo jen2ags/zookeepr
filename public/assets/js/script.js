@@ -20,15 +20,15 @@ const handleAnimalFormSubmit = event => {
     diet = '';
   }
 
-  const selectedTraits = $animalForm.querySelector('[name="personality"').selectedOptions;
+  const selectedTraits = $animalForm.querySelector('[name="personality"]').selectedOptions;
   const personalityTraits = [];
   for (let i = 0; i < selectedTraits.length; i += 1) {
     personalityTraits.push(selectedTraits[i].value);
   }
   const animalObject = { name, species, diet, personalityTraits };
 
-  fetch('/api/animals', {
-    method:'POST',
+  fetch('api/animals', {
+    method: 'POST',
     headers: {
       Accept: 'application/json',
       'Content-Type': 'application/json'
@@ -39,7 +39,7 @@ const handleAnimalFormSubmit = event => {
     if (response.ok) {
       return response.json();
     }
-    alert('Error:' + response.statusText);
+    alert('Error: ' + response.statusText);
   })
   .then(postResponse => {
     console.log(postResponse);
